@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorf Login Form</title>
+    <link rel="stylesheet" href="loginstyle.css">
+    <style>
+        /* Pop-up styling */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .popup h3 {
+            margin: 0;
+            padding-bottom: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .popup p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .popup button {
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup button:hover {
+            background: #555;
+        }
+
+        /* Overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="maincontainer">
+        <form onsubmit="return validateLogin()">
+            <h2>Login</h2>
+            <div class="input-field">
+                <input type="text" name="username" id="username" required>
+                <label for="username">Enter your Username</label>
+            </div>
+            <div class="input-field">
+                <input type="password" name="password" id="password" required>
+                <label for="password">Enter your Password</label>
+            </div>
+
+            <div class="password-options">
+                <label for="remember">
+                    <input type="checkbox" id="remember">
+                    <p>Remember me</p>
+                </label>
+
+                <a href="#">Forgot Password</a>
+            </div>
+
+            <button type="submit">Log In</button>
+
+            <div class="account-options">
+                <p>Don't have an account? <a href="#">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Custom Popup -->
+    <div class="popup" id="popup">
+        <h3>Login Successful!</h3>
+        <p>Welcome to the dashboard.</p>
+        <button onclick="proceedToOptions()">Proceed</button>
+    </div>
+
+    <script>
+        function validateLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            const validCredentials = {
+                shadow: "shadow",
+                prince: "prince"
+            };
+
+            if (validCredentials[username] === password) {
+                if (username === "shadow" && password === "shadow") {
+                    openPopup();
+                    return false; // Prevent form submission
+                } else {
+                    alert("Access denied for these credentials.");
+                    return false; // Prevent form submission
+                }
+            } else {
+                alert("Invalid username or password");
+                return false; // Prevent form submission
+            }
+        }
+
+        function openPopup() {
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function proceedToOptions() {
+            window.location.href = "options.html";
+        }
+    </script>
+</body>
+</html>

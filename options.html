@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options</title>
+    <link rel="stylesheet" href="loginstyle.css">
+    <style>
+        /* Ensure consistent styling with loginstyle.css */
+        body {
+            font-family: Arial, sans-serif;
+            background: rgba(255, 255, 255, 0.9); /* Same background as login page */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .maincontainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .option-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .option-box {
+            background: black;
+            color: white;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            text-align: center;
+            width: 100%;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            font-size: 18px;
+        }
+
+        .option-box:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        .option-box a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .back-button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="maincontainer">
+        <div class="option-container">
+            <div class="option-box">
+                <a href="3d.html">Krishna and Radha</a>
+            </div>
+            <div class="option-box">
+                <a href="earth.html">3D Earth</a>
+            </div>
+            <div class="option-box">
+                <a href="3dschool.html">Classmates 🔥</a>
+            </div>
+            <div class="option-box">
+                <a href="default4.html">Default 4</a>
+            </div>
+            <div class="option-box">
+                <a href="default5.html">Default 5</a>
+            </div>
+            <div class="option-box">
+                <a href="default6.html">Default 6</a>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-button" onclick="goBack()">Back</button>
+
+    <script>
+        function goBack() {
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
